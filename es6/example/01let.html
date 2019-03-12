@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>01.var和let</title>
+		<title>let</title>
 	</head>
 	<body>
 		<button>按钮1</button>
@@ -103,28 +103,7 @@
 			}
 			
 			
-			function swichTabES6(){
-				
-				var btns = document.getElementsByTagName("button");
-				
-				var el_box = document.getElementsByTagName("div")[0];
-				
-				var el_p = el_box.getElementsByTagName("p");
-				console.log("不可以打印i","变量没有提升,此时执行会报错，即暂时性死区")  
-				for (let i = 0; i < btns.length; i++) {  
-					console.log(i,"块级作用域内打印i")
-					if(i!== 0){
-						el_p[i].style.display="none";
-					};
-					btns[i].onclick = function(){
-						for (var j = 0; j < btns.length; j++) {
-							el_p[j].style.display="none";
-						}
-						el_p[i].style.display="block";
-					}
-				}  
-				console.log("不可以直接打印i","块级作用域外没有i，此时打印报错")
-			}
+			
 			swichTabES6()
 		</script>
 	</body>
