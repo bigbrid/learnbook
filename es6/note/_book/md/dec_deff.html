@@ -530,7 +530,24 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x9ED8;&#x8BA4;&#x503C;">&#x9ED8;&#x8BA4;&#x503C;</h1>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x7684;&#x65F6;&#x5019;&#x8FD9;&#x4E2A;&#x503C;&#x5148;&#x7B49;&#x4E0E;undefined&#xFF0C;&#x5982;&#x679C;&#x6709;&#x503C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x88AB;&#x8D4B;&#x503C;&#xFF0C;&#x6CA1;&#x6709;&#x503C;&#x662F;undefined&#x3002;</p>
+<pre><code>let [x,y,z] = [1,2]
+console.log(z)  //undefined&#xFF0C;&#x53F3;&#x4FA7;&#x4E0E;z&#x4F4D;&#x7F6E;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x503C;
+</code></pre><h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x9ED8;&#x8BA4;&#x503C;">&#x81EA;&#x5B9A;&#x4E49;&#x9ED8;&#x8BA4;&#x503C;</h2>
+<pre><code>let [x,y,z=100] = [1,2];
+console.log(z) //&#x81EA;&#x5B9A;&#x4E49;z&#x7684;&#x503C;&#x662F;100&#xFF0C;&#x53F3;&#x4FA7;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F1A;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#xFF1B;
+</code></pre><h3 id="&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x51FD;&#x6570;">&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x51FD;&#x6570;</h3>
+<p>&#x5982;&#x679C;&#x4E0E;&#x4E4B;&#x5BF9;&#x5E94;&#x7684;&#x6709;&#x503C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5219;&#x4E0D;&#x6267;&#x884C;&#xFF1B;</p>
+<pre><code>function f() {
+    return &quot;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x6CA1;&#x6709;&#x503C;&quot;;
+};
 
+let [n= f()] = []
+console.log(n) //&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#xFF0C;&#x8F93;&#x51FA;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF1B;
+
+let [n= f()] = [100]
+console.log(n) //&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#xFF0C;&#x8F93;&#x51FA;&#x5BF9;&#x5E94;&#x503C;
+</code></pre>
                                 
                                 </section>
                             
@@ -573,7 +590,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"默认值","level":"1.9.5","depth":2,"next":{"title":"函数参数的解构赋值","level":"1.9.6","depth":2,"path":"md/dec_function.md","ref":"md/dec_function.md","articles":[]},"previous":{"title":"数值和布尔值的解构赋值","level":"1.9.4","depth":2,"path":"md/dec_number.md","ref":"md/dec_number.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/dec_deff.md","mtime":"2019-03-11T01:44:35.373Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-12T10:16:30.326Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"默认值","level":"1.9.5","depth":2,"next":{"title":"函数参数的解构赋值","level":"1.9.6","depth":2,"path":"md/dec_function.md","ref":"md/dec_function.md","articles":[]},"previous":{"title":"数值和布尔值的解构赋值","level":"1.9.4","depth":2,"path":"md/dec_number.md","ref":"md/dec_number.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/dec_deff.md","mtime":"2019-03-13T02:16:36.582Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-13T08:48:59.815Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -530,7 +530,44 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x6570;&#x7EC4;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;">&#x6570;&#x7EC4;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</h1>
+<p>&#x7B49;&#x53F7;&#x7684;&#x5DE6;&#x53F3;&#x4E24;&#x8FB9;&#x90FD;&#x662F;&#x6570;&#x7EC4;</p>
+<pre><code>[a,b,c] = [1,2,3]
+</code></pre><p>&#x4F8B;&#x5B50;&#xFF1A;&#x6628;&#x5929;&#x4ECA;&#x5929;&#x660E;&#x5929;</p>
+<pre><code>const getDateStr = function(date){
+    let o = new Date(date);
+    let years = o.getFullYear();
+    let mouth = o.getMonth()+1;
+    let day = o.getDate();
+    let hour = o.getHours();
+    let minu = o.getMinutes();
+    let second = o.getSeconds()
+    let weel =&quot;&#x65E5;&#x4E00;&#x4E8C;&#x4E09;&#x56DB;&#x4E94;&#x516D;&quot;.charAt(o.getDay());
+    const doTonw = function(s){
+    let n = Number(s);
+        return  n &lt; 10?&quot;0&quot;+ n:n;
+    };
+    return years+&quot;/&quot;+doTonw(mouth)+&quot;/&quot;+doTonw(day)+&quot; &quot;+doTonw(hour)+
+    &quot;:&quot;+doTonw(minu)+&quot;:&quot;+doTonw(second)+&quot; &#x661F;&#x671F;&quot;+weel
+}
 
+var time = new Date().getTime();
+const oneday = 60*60*24*1000; //&#x4E00;&#x5929;&#x7684;&#x65F6;&#x95F4;
+let [yesterday,today,tromorrow] = [getDateStr(time-oneday),getDateStr(time),getDateStr(time+oneday)];
+
+console.log(yesterday);  //&#x6628;&#x5929;
+console.log(today);        //&#x4ECA;&#x5929;
+console.log(tromorrow);//&#x660E;&#x5929;
+</code></pre><p><strong>&#x4E0D;&#x5B8C;&#x5168;&#x7ED3;&#x6784;</strong></p>
+<p>&#x6CA1;&#x6709;&#x8D4B;&#x503C;&#x5C31;&#x4E3A;undefined</p>
+<pre><code>let [yesterday,today,tromorrow] = [getDateStr(time-oneday),getDateStr(time)];
+console.log(tromorrow);//undefined
+</code></pre><p><strong>&#x53D8;&#x53C2;&#x89E3;&#x6784;</strong></p>
+<p>&#x8FD9;&#x91CC;&#x7684;future&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<pre><code>let [today,...future] = [getDateStr(time),getDateStr(time+oneday),getDateStr(time+oneday*2)];
+console.log(today);        //&#x4ECA;&#x5929;
+console.log(future);//&#x672A;&#x6765;&#x4E24;&#x5929;
+console.log(typeof future);//object
+</code></pre>
                                 
                                 </section>
                             
@@ -573,7 +610,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数组的解构赋值","level":"1.9.1","depth":2,"next":{"title":"对象的解构赋值","level":"1.9.2","depth":2,"path":"md/dec_object.md","ref":"md/dec_object.md","articles":[]},"previous":{"title":"解构赋值","level":"1.9","depth":1,"path":"md/dec.md","ref":"md/dec.md","articles":[{"title":"数组的解构赋值","level":"1.9.1","depth":2,"path":"md/dec_arry.md","ref":"md/dec_arry.md","articles":[]},{"title":"对象的解构赋值","level":"1.9.2","depth":2,"path":"md/dec_object.md","ref":"md/dec_object.md","articles":[]},{"title":"字符串的解构赋值","level":"1.9.3","depth":2,"path":"md/dec_string.md","ref":"md/dec_string.md","articles":[]},{"title":"数值和布尔值的解构赋值","level":"1.9.4","depth":2,"path":"md/dec_number.md","ref":"md/dec_number.md","articles":[]},{"title":"默认值","level":"1.9.5","depth":2,"path":"md/dec_deff.md","ref":"md/dec_deff.md","articles":[]},{"title":"函数参数的解构赋值","level":"1.9.6","depth":2,"path":"md/dec_function.md","ref":"md/dec_function.md","articles":[]},{"title":"解构赋值的用途","level":"1.9.7","depth":2,"path":"md/dec_use.md","ref":"md/dec_use.md","articles":[]},{"title":"解构赋值的注意事项","level":"1.9.8","depth":2,"path":"md/dec_look.md","ref":"md/dec_look.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/dec_arry.md","mtime":"2019-03-11T01:44:35.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-12T10:16:30.326Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数组的解构赋值","level":"1.9.1","depth":2,"next":{"title":"对象的解构赋值","level":"1.9.2","depth":2,"path":"md/dec_object.md","ref":"md/dec_object.md","articles":[]},"previous":{"title":"解构赋值","level":"1.9","depth":1,"path":"md/dec.md","ref":"md/dec.md","articles":[{"title":"数组的解构赋值","level":"1.9.1","depth":2,"path":"md/dec_arry.md","ref":"md/dec_arry.md","articles":[]},{"title":"对象的解构赋值","level":"1.9.2","depth":2,"path":"md/dec_object.md","ref":"md/dec_object.md","articles":[]},{"title":"字符串的解构赋值","level":"1.9.3","depth":2,"path":"md/dec_string.md","ref":"md/dec_string.md","articles":[]},{"title":"数值和布尔值的解构赋值","level":"1.9.4","depth":2,"path":"md/dec_number.md","ref":"md/dec_number.md","articles":[]},{"title":"默认值","level":"1.9.5","depth":2,"path":"md/dec_deff.md","ref":"md/dec_deff.md","articles":[]},{"title":"函数参数的解构赋值","level":"1.9.6","depth":2,"path":"md/dec_function.md","ref":"md/dec_function.md","articles":[]},{"title":"解构赋值的用途","level":"1.9.7","depth":2,"path":"md/dec_use.md","ref":"md/dec_use.md","articles":[]},{"title":"解构赋值的注意事项","level":"1.9.8","depth":2,"path":"md/dec_look.md","ref":"md/dec_look.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/dec_arry.md","mtime":"2019-03-13T01:33:04.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-13T08:48:59.815Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>解构赋值——四大名著</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			ul,li{list-style: none;}
+			h1{font-size: 40px;text-align: center;padding: 50px 0;color: #373B4E;}
+			.content{width: 1000px;margin: 0 auto;padding-bottom: 100px;}
+			#tab{width: 100%;display: flex;border:1px solid #C0C0C0;border-left: none;border-right: none;}
+			#tab li{display: block;flex: 1;text-align: center;border-right: 1px solid #C0C0C0;cursor: pointer;box-sizing: border-box;padding: 5px;}
+			#tab li:last-of-type{border:none}
+			#tab li:hover{color: #2AA198;}
+			#container{margin-top: 30px;padding-bottom: 30px;border-bottom: 1px solid #C1C6D7;}
+			#container .tit{font-size: 28px;text-align: center;}
+			#container .des{display: flex;justify-content: flex-end;color: #1C1F2B;}
+			#container .des span{margin-left: 20px;}
+			#container .cont_text{margin-top: 50px;line-height: 2;}
+			#container li{display: none;}
+			#container li:first-child{display: block;}
+			
+		</style>
+	</head>
+	<body>
+		<h1>解构赋值——四大名著</h1>
+		<div class="content">
+			<ul id="tab"></ul>
+			<ul id="container"></ul>
+		</div>
+		<script src="book.js"></script>
+		<script>
+			
+			//定义获取ID和新建el的方法
+			const gId = function(el){
+			   return document.getElementById(el)
+			};
+			const creaEl = function(el){
+				return document.createElement(el)
+			};
+			{
+				//取值
+				let container = gId("container");
+				let tab = gId("tab");
+				//定义块级作用域的全局变量，为默认添加文章个数
+				let index = 0;
+				//遍历对象
+				for (let key in books) {
+				
+					//对象解构取值
+					let {title,authour,upTime,arctile} = books[key];
+					
+					//数组解构赋值
+					let [oli,des,dbauthor,dbuptime] = [creaEl("li"),creaEl("p"),creaEl("span"),creaEl("span")];
+					
+					//数组解构赋值
+					[des.className, dbauthor.className,dbuptime.className] = ["des","author","uptime"];
+					
+					//数组解构赋值
+					[oli.innerHTML,dbauthor.innerHTML,dbuptime.innerHTML,arctile] = [title,"作者：" + authour,"上传时间：" + upTime,arctile];
+					
+					//设置导航
+					tab.appendChild(oli);
+					des.appendChild(dbauthor)
+					des.appendChild(dbuptime)
+
+					//循环迭代取值
+					for (let {id,title,context} of arctile) {
+					
+						//数组解构
+						let [bdli,h2,cont_text] = [creaEl("li"),creaEl("h2"),creaEl("p")];
+						
+						//数组解构
+						[h2.className,cont_text.className] = ["tit","cont_text"];
+						
+						//这里用正则把单换行赋换成双换行符，起到美化
+						[h2.innerHTML,cont_text.innerHTML] = [title,context.replace(/<br\/>/g,"<br/><br/>")];
+						//添加内容
+						bdli.appendChild(h2);
+						bdli.appendChild(des);
+						bdli.appendChild(cont_text);
+						
+						//默认添加的数据索引
+						if(index == 0){
+							container.appendChild(bdli)	
+						};
+						
+						//导航的点击事件
+						oli.addEventListener("click",function(even){
+							container.innerHTML="";
+							container.appendChild(bdli)
+						})
+						
+					}		
+					index++;
+				}
+			};
+				
+		</script>
+	</body>
+</html>

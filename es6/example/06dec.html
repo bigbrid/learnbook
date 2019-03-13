@@ -4,6 +4,9 @@
 		<meta charset="utf-8">
 		<title></title>
 	</head>
+	<style>
+		*{tex}
+	</style>
 	<body>
 		<script>
 			//ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。
@@ -29,6 +32,7 @@
 			//数组的解构赋值
 			//等号的左右两边都是数组;
 			//例子,昨天今天明天
+			
 			/*
 			const getDateStr = function(date){
 				let o = new Date(date);
@@ -47,6 +51,9 @@
 			}
 			var time = new Date().getTime();
 			const oneday = 60*60*24*1000; //一天的时间
+			
+			*/
+			
 			/*
 			let [yesterday,today,tromorrow] = [getDateStr(time-oneday),getDateStr(time),getDateStr(time+oneday)];
 			console.log(yesterday,"昨天现在");  //昨天
@@ -62,8 +69,10 @@
 			console.log(tromorrow);//明天
 			*/
 			
+			
+			//变参解构，这里的future是一个对象;
 			/*
-			//变参解构，这里的future是一个对象，伪数组，看起是数组，但实际上是一个对象;
+			
 			let [today,...future] = [getDateStr(time),getDateStr(time+oneday),getDateStr(time+oneday*2)];
 			console.log(today);		//今天
 			console.log(future);//未来两天
@@ -260,6 +269,8 @@
 	   console.log(res) //{c: 2, d: 3, e: 4}
 	   */
 	  
+	  
+	  /*
 	  //动态解构对象字段
 	    let key = 'x';
 		// key是变量
@@ -270,8 +281,11 @@
 		const { pModule1, pModule2 } = require("p");
 	   //等等，还有其他
 	   
-	   
-	   
+	   */
+	  
+	  //圆括号的使用
+	  
+	  
 	   
 		</script>
 	</body>
