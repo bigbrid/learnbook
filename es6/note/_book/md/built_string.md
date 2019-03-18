@@ -171,7 +171,7 @@ let elInnerhtml =
 
 - 模板字符串可以嵌套
 
-  [例子](https://ulvoe.com/Learning/example/07string.html)：
+  [例子](https://ulvoe.com/Learning/example/es6/07string.html)：
 
   ```
   let books = [

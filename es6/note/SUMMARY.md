@@ -1,7 +1,6 @@
 # Summary
 
 * [前言](README.md)
-* [版本控制利器Git](git.md)
 * [ECMAScript6](md/home.md)
 * [let命令](md/let.md)
 * [const](md/const.md)
@@ -29,4 +28,6 @@
     * [set数据结构](md/set.md)
     * [map数据结构](md/map.md)
 * [class](md/class.md)
+* [vue学习文档](https://ulvoe.com/Learning/book/vue/)
+* [工具和环境](https://ulvoe.com/Learning/book/tool/)
 

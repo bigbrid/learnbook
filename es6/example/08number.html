@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数值
+        //Number
+
+
+        //Number.isFinite
+        //传统方法
+        /*
+        console.log(isFinite("10"));//true 
+        console.log(isFinite("10岁")); //false
+        console.log(isFinite(10)); //true
+
+        //新增方法
+        console.log(Number.isFinite("10")); //false
+        console.log(Number.isFinite("10岁")); //false
+        console.log(Number.isFinite(10));//true
+        */
+       
+       // Number.isNAN()
+
+       /*
+        console.log(isNaN(NaN));  //true
+        console.log(isNaN("NaN")); //true
+
+        //新增方法
+        console.log(Number.isNaN(NaN));  //true
+        console.log(Number.isNaN("NaN")); //false
+    */
+
+    /*
+     console.log(Number.parseInt===parseInt)  //true
+     console.log(Number.parseFloat===parseFloat) //true
+*/
+
+/*
+    console.log(Number.isInteger(-1))
+    console.log(Number.isInteger("0"))
+    console.log(Number.isInteger(0))
+    console.log(Number.isInteger(1))
+  */  
+
+    const minNum = Number.MIN_SAFE_INTEGER -1;
+
+    console.log(Number.isSafeInteger(minNum)) //false
+
+    const maxNum = Number.MAX_SAFE_INTEGER + 1;
+
+    console.log(Number.isSafeInteger(maxNum)) //false
+
+    console.log(minNum + maxNum); //0
+
+
+
+    
+    
+    </script>
+</body>
+</html>

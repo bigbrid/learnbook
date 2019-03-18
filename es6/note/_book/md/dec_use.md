@@ -80,7 +80,7 @@ const { pModule1, pModule2 } = require("p");
 
 ## 循环迭代取值
 
-**实例：**[四大名著](https://www.ulvoe.com/Learning/example/06dec_use.html)
+**实例：**[四大名著](https://www.ulvoe.com//Learning/example/es6/06dec_use.html)
 
 css
 
