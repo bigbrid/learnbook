@@ -3,7 +3,7 @@ const books = {
 	 xyj: {
 		title:"西游记",
 		authour:"吴承恩",
-		upTime:"2008-10-5",
+		upTime:"明",
 		arctile:[
 			{
 				id:"10",
@@ -17,7 +17,7 @@ const books = {
 	  sgyy:{
 			title:"三国演义",
 			authour:"罗贯中",
-			upTime:"2008-10-1",
+			upTime:"明",
 			arctile:[
 				{
 					id:"1",
@@ -31,7 +31,7 @@ const books = {
 	  hlm:{
 	  		title:"红楼梦",
 	  		authour:"曹雪芹",
-	  		upTime:"2008-10-2",
+	  		upTime:"清",
 	  		arctile:[
 	  			{
 	  				id:"15",
@@ -45,7 +45,7 @@ const books = {
 	 shz: {
 	  		title:"水浒传",
 	  		authour:"施耐庵",
-	  		upTime:"2008-10-3",
+	  		upTime:"明",
 	  		arctile:[
 	  			{
 	  				id:"16",

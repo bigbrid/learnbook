@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中国古典文学管理</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #app{width: 100%;box-sizing: border-box;padding: 30px 5px 5px 5px ;max-width: 1200px;margin: 0 auto;text-align: center;}
+        #app form{width: 100%;display: block;}
+        .list{width: 100%;display: flex;flex-wrap: wrap;}
+        .list li{margin-top: 20px;display: flex;justify-content: space-between;width: 100%;}
+        .list span{width: 50px;height: 40px;line-height: 40px;}
+        .list input{flex: 1;display: block;height: 40px;line-height: 40px;border: 1px saddlebrown solid;}
+        .textarea{resize: none;flex: 1;border: 1px saddlebrown solid;flex: 1;}
+        .submit{padding: 5px 20px;margin-top: 20px;}
+
+    </style>
+</head>
+<body>
+   <div id="app">
+        <form>
+            <ul class="list">
+                <li>
+                    <span>名称：</span>
+                    <input type="text" placeholder="名称">
+                </li>
+                <li>
+                    <span>作者</span>
+                    <input type="text" placeholder="作者">
+                </li>
+                <li>
+                    <span>年代：</span>
+                    <input type="text" placeholder="年代">
+                </li>
+                <li>
+                    <span>介绍:</span>
+                    <textarea class="textarea" name="" id="" cols="30" rows="10"  placeholder="介绍"></textarea>
+                </li>
+            </ul>
+            <p></p>
+            <button class="submit" type="submit">提交</button>
+        </form>
+   </div>
+
+    <script src="https://www.ulvoe.com/Learning/example/vue/vue.min.js"></script>
+    <script src="https://www.ulvoe.com//Learning/example/es6/book.js" charset="utf-8"></script>
+    
+    <script>
+        
+
+    </script>
+</body>
+</html>

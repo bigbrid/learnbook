@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>四大名著</title>
+    <style>
+        *{padding: 0;margin: 0;list-style: none}
+        h1{font-size: 30px;text-align: center;padding: 50px 0;color: #373B4E;}
+			.content{width: 100%;margin: 0 auto;padding: 0 20px 100px 20px;box-sizing: border-box;}
+			#tab{width: 100%;display: flex;border:1px solid #C0C0C0;border-left: none;border-right: none;}
+			#tab li{display: block;flex: 1;text-align: center;border-right: 1px solid #C0C0C0;cursor: pointer;box-sizing: border-box;padding: 8px;}
+			#tab li:last-of-type{border:none}
+			.des{margin-top: 20px;}
+			#container{margin-top: 30px;padding-bottom: 30px;border-bottom: 1px solid #C1C6D7;}
+			#container .tit{font-size: 20px;text-align: center;}
+			#container .des{display: flex;justify-content: flex-end;color: #1C1F2B;}
+			#container .des span{margin-left: 20px;}
+            #container .cont_text{margin-top: 50px;line-height: 2;}
+            .cur{background: red;color: #fff;}
+			@media screen and (min-width:1000px){
+			  	.content{width: 1000px;margin: 0 auto;}
+				#container .tit{font-size: 28px;text-align: center;}
+			}
+    
+    </style>
+</head>
+<body>
+    <h1>四大名著</h1>
+    <div  id="app"  class="content">
+        <ul id="tab">
+            <li  v-for="(item,name,index) in books" :key="index" :class="(index===curIndex)?tabCurClass:''"  @click.stop.prevent="swingPage(index)"> {{item.title}}</li>
+        </ul>
+        <ul id="container">
+           <li  v-for="(item,name,index) in books" :key="index" v-if="index===curIndex" >
+               <h2 class="tit">{{item.title}}</h2>
+               <p class="des">
+                   <span class="author">{{item.authour}} </span>
+                   <span class="uptime">年代：{{item.upTime}} </span>
+                </p>
+                <p class="cont_text" v-for="(page, pageIndex) in item.arctile" :key="pageIndex" v-html="page.context.replace(/\<br\/>/g,'\<br/>\<br/>')"></p>
+           </li> 
+        </ul>
+    </div>
+    <script src="https://www.ulvoe.com/Learning/example/vue/vue.min.js"></script>
+    <script src="https://www.ulvoe.com//Learning/example/es6/book.js" charset="utf-8"></script>
+    
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+               curIndex:0,
+               books: books,
+               tabCurClass:"cur"
+            },
+            methods: {
+                swingPage:function(index){
+                    this.curIndex = index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
