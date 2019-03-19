@@ -30,6 +30,41 @@ bin\apache\apache2.4.27\conf
 </Directory>
 ```
 
+```
+<Directory "${INSTALL_DIR}/www/">
+    #
+    # Possible values for the Options directive are "None", "All",
+    # or any combination of:
+    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
+    #
+    # Note that "MultiViews" must be named *explicitly* --- "Options All"
+    # doesn't give it to you.
+    #
+    # The Options directive is both complicated and important.  Please see
+    # http://httpd.apache.org/docs/2.4/mod/core.html#options
+    # for more information.
+    #
+    Options +Indexes +FollowSymLinks +Multiviews
+
+    #
+    # AllowOverride controls what directives may be placed in .htaccess files.
+    # It can be "All", "None", or any combination of the keywords:
+    #   AllowOverride FileInfo AuthConfig Limit
+    #
+    AllowOverride all
+
+    #
+    # Controls who can get stuff from this server.
+    #
+
+#   onlineoffline tag - don't remove
+    Require local
+    Require all granted     
+</Directory>
+```
+
+
+
 进入安装目录  bin\apache\apache2.4.27\conf \extra
 
 找到  httpd-vhosts.conf 编辑器打开
