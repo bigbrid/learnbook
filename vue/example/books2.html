@@ -8,48 +8,122 @@
     <link rel="stylesheet" href="reset.css">
     <style>
         #app{width: 100%;box-sizing: border-box;padding: 30px 5px 5px 5px ;max-width: 1200px;margin: 0 auto;text-align: center;}
+        .h1{text-align: center;font-size: 24px;}
         #app form{width: 100%;display: block;}
         .list{width: 100%;display: flex;flex-wrap: wrap;}
         .list li{margin-top: 20px;display: flex;justify-content: space-between;width: 100%;}
         .list span{width: 50px;height: 40px;line-height: 40px;}
-        .list input{flex: 1;display: block;height: 40px;line-height: 40px;border: 1px saddlebrown solid;}
-        .textarea{resize: none;flex: 1;border: 1px saddlebrown solid;flex: 1;}
+        .list input{flex: 1;display: block;height: 40px;line-height: 40px;border: 1px saddlebrown solid;text-indent: 1em;}
+        .textarea{resize: none;flex: 1;border: 1px saddlebrown solid;flex: 1;text-indent: 1em;}
         .submit{padding: 5px 20px;margin-top: 20px;}
 
     </style>
 </head>
 <body>
    <div id="app">
-        <form>
+        <h1 class="h1">中国古典文学管理</h1>
+       
             <ul class="list">
                 <li>
                     <span>名称：</span>
-                    <input type="text" placeholder="名称">
+                    <input type="text" placeholder="名称" v-model="title">
                 </li>
                 <li>
-                    <span>作者</span>
-                    <input type="text" placeholder="作者">
+                    <span>作者：</span>
+                    <input type="text" placeholder="作者" v-model="authour">
                 </li>
                 <li>
                     <span>年代：</span>
-                    <input type="text" placeholder="年代">
+                    <input type="text" placeholder="年代" v-model="time">
                 </li>
                 <li>
                     <span>介绍:</span>
-                    <textarea class="textarea" name="" id="" cols="30" rows="10"  placeholder="介绍"></textarea>
+                    <textarea class="textarea" name="" id="" cols="30" rows="10"  placeholder="介绍"  v-model="kaipianci"></textarea>
                 </li>
             </ul>
             <p></p>
-            <button class="submit" type="submit">提交</button>
-        </form>
+            <button class="submit" @click="onback">返回</button>
+            <button class="submit" @click="btnSubmit">提交</button>
+      
    </div>
 
     <script src="https://www.ulvoe.com/Learning/example/vue/vue.min.js"></script>
-    <script src="https://www.ulvoe.com//Learning/example/es6/book.js" charset="utf-8"></script>
-    
+    <script src="https://www.ulvoe.com/Learning/example/vue/books.js"></script>
     <script>
-        
+        function isChinese(temp){var re =/.*[\\/u4e00-\\/u9fa5]+.*$/; return  re.test(temp);}
+        function istrim(temp){return temp.replace(/^\s+|\s+$/g, '')}
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                title:"",
+                authour:"",
+                time:"",
+                kaipianci:"",
+                infoBook:[]
+                
+            },
+            methods: {
+                onback:function(){
+                    window.history.go(-1)
+                },
+                btnSubmit:function(){
+                    let _this = this;
+                    let {title,authour,time,kaipianci} = _this;
+                    let addBooks = {
+                        title:istrim(title),
+                        authour:istrim(authour),
+                        time:istrim(time),
+                        kaipianci:istrim(kaipianci)
+                    };
+                    let storgbooks = localStorage.getItem('books');
+                    let index = 0;
+                    for (const key in addBooks) {
+                        if (addBooks.hasOwnProperty(key)) {
+                            const element = addBooks[key];
+                            if(element.length < 1){
+                                alert("非法字符或不能为空")
+                                break;
+                            }else{
+                               if(!isChinese(element)){
+                                if(index===Object.keys(addBooks).length-1){
+                                    let addStr = JSON.stringify(addBooks);
 
+                                    if(storgbooks === null){
+                                        _this.infoBook = books;
+                                        _this.infoBook.push(addBooks)
+
+                                    }else{
+                                        _this.infoBook = JSON.parse(storgbooks);
+
+                                        if(storgbooks.includes(addStr)){
+
+                                            alert("书库已经有这本书啦！")
+                                        }else{
+
+                                            _this.infoBook.push(addBooks)
+                                        }
+                                    }
+                                    localStorage.setItem('books', JSON.stringify(_this.infoBook));
+                                    self.location="https://www.ulvoe.com/Learning/example/vue/books3.html?"+"data="+_this.infoBook.length;
+
+                                };
+                               }else{
+                                    alert("非法字符或不能为空")
+                                    break;
+                               }
+                            }
+                        }
+                        index++;
+                       
+                    }
+
+                    
+                    
+                } 
+
+            }
+        })
+       
     </script>
 </body>
 </html>

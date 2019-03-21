@@ -428,5 +428,5 @@ var  vm = new Vue({
 **案例**
 
 1. [四大名著](https://ulvoe.com/Learning/example/vue/books1.html)
-2. [中国古典文学管理]()
+2. [中国古典文学管理](https://ulvoe.com/Learning/example/vue/books2.html)
 
