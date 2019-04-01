@@ -74,7 +74,7 @@ console.log(Number.isInteger(1))//true
 
 ### Number.isSafeInteger(n)
 
-判断这个数值是否在最打值和最小值之间（不含最大最小值，没碰到实际应用中）
+判断这个数值是否在最打值和最小值之间（不含最大最小值，在实际应用中没遇到）
 
 **最小值：-2的53次方**  Number.MIN_SAFE_INTEGER
 
@@ -90,5 +90,80 @@ const maxNum = Number.MAX_SAFE_INTEGER + 1;
 console.log(Number.isSafeInteger(maxNum)) //false
 
 console.log(minNum + maxNum); //0
+```
+
+
+
+### Number.EPSILON
+
+表示一个常量，可以看作是javascript的最小精度
+
+
+
+
+
+## Math的扩展
+
+看文档的时候看到新增了17个新的静态方法，有点晕。。。。
+
+### Math.trunc()
+
+去除数字的小数部分。
+
+1. 对于非数值，`Math.trunc`内部使用`Number`方法将其先转为数值。
+2. 对于空值和无法截取整数的值，返回`NaN`。
+3. 对于没有部署这个方法的环境，可以用下面的代码模拟，或使用其他方法；
+
+```
+console.log(Math.trunc()); //NAN 
+console.log(Math.trunc(10.3));  //10
+console.log(Math.trunc("10.3")); //10
+console.log(Math.trunc("bigbrid")); //NAN
+//模拟方法
+Math.trunc = Math.trunc || function(x) {
+  return x < 0 ? Math.ceil(x) : Math.floor(x);
+};
+```
+
+### Math.sign()
+
+它会返回五种值。
+
+- 参数为正数，返回`+1`；
+- 参数为负数，返回`-1`；
+- 参数为 0，返回`0`；
+- 参数为-0，返回`-0`;
+- 其他值，返回`NaN`。
+
+### Math.cbrt()
+
+计算一个数的立方根
+
+```
+console.log(Math.cbrt(8)); //2
+```
+
+### Math.clz32()
+
+将参数转为32位无符号整数的形式
+
+### Math.imul()
+
+返回两个数以 32 位带符号整数形式相乘的结果
+
+### Math.fround()
+
+返回一个数的32位单精度浮点数形式
+
+### Math.hypot()
+
+方法返回所有参数的平方和的平方根。
+
+参数不是数值，`Math.hypot`方法会将其转为数值。只要有一个参数无法转为数值，就会返回 NaN。
+
+```
+ console.log(Math.hypot(3,4));  //5
+ console.log(Math.hypot(3,8,6));  //10.44030650891055
+ console.log(Math.hypot("sss")); //NAN
 ```
 

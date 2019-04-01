@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
     <script>
         //数值
         //Number
@@ -48,6 +55,8 @@
     console.log(Number.isInteger(1))
   */  
 
+  /*
+
     const minNum = Number.MIN_SAFE_INTEGER -1;
 
     console.log(Number.isSafeInteger(minNum)) //false
@@ -57,6 +66,95 @@
     console.log(Number.isSafeInteger(maxNum)) //false
 
     console.log(minNum + maxNum); //0
+*/
+
+        // console.log(Number.EPSILON);
+        
+
+        /*
+        console.log(Math.trunc()); //NAN
+        console.log(Math.trunc(10.3));  //10
+        console.log(Math.trunc("10.3")); //10
+        console.log(Math.trunc("bigbrid")); //NAN
+        */
+
+        // console.log(Math.cbrt(-1));
+        // console.log(Math.cbrt(8));
+
+        /*
+        console.log(Math.hypot(3,4));  //5
+        console.log(Math.hypot(3,8,6));  //10.44030650891055
+        console.log(Math.hypot("sss")); //NAN
+*/
+
+        /*
+        function add(x,y){
+            return x + y 
+        }
+       console.log(add(...[2,3]));
+       */
+
+       /*
+       let arr = [
+           1111,
+           true,
+           ...(5>1?"大于1":"小于五"),
+           "000"
+       ]
+       console.log(arr[2]) //大
+       console.log(arr[3]) //于
+       console.log(arr[4])  //1
+      
+       */
+      //替代apply
+
+      /*
+      let　a1 = ["0","1","8"];
+      let a2 = ["a","b","k"];
+      let r = Math.min.apply(null,a1)
+     Array.prototype.push.apply(arr1, arr2);
+        console.log(r,a1); //0 ["0","1","8","a","b","k"];
+        */
+        
+        /*
+        let　a1 = ["0","1","8"];
+        let a2 = ["a","b","k"];
+        console.log(Math.min(...a1)); //0
+        a1.push(...a2)
+        console.log(a1); // ["0","1","8","a","b","k"];
+*/
+
+        let obj = {
+            0:"0",
+            1:"zhangsan",
+            2:100,
+            3:true,
+            length:4
+        };
+        console.log(Array.from(obj));
+
+
+        var toArry = function(obj){
+            return (!Array.from)? [].slice.call(obj): Array.from(obj);
+        };
+        console.log(toArry(obj));
+        
+        
+
+        // const toArray = (() =>
+        //      Array.from ? Array.from : obj => [].slice.call(obj)
+        // )();
+        
+ 
+        
+
+       
+       
+        
+       
+        
+        
+
 
 
 
