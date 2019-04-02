@@ -1,6 +1,6 @@
 # Summary
 
-* [前言](README.md)
+* [BigBrid-ES6](README.md)
 * [ECMAScript6](md/home.md)
 * [let命令](md/let.md)
 * [const](md/const.md)
@@ -30,4 +30,5 @@
 * [class](md/class.md)
 * [vue学习文档](https://ulvoe.com/Learning/book/vue/)
 * [工具和环境](https://ulvoe.com/Learning/book/tool/)
+* [回到首页](https://ulvoe.com/)
 
