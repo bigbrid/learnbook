@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{tex}
+	</style>
+	<body>
+		<script>
+			//ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。
+			//解构赋值的类型
+			//左右的都是数组，数组解构赋值 
+			//左右都是对象，对象解构赋值 
+			//左边是数组，右边是字符串，字符串解构赋值 
+			//布尔值解构赋值，函数参数解构赋值，数值解构赋值
+			
+			
+			//以前,为变量赋值,只能只能制定值
+			/*
+			var a = 1,b = 2,c = 3;
+			console.log(a,b,c) //1 2 3
+			*/
+			//ES6中允许这样
+			//
+			/*
+			var [a,b,c] = [1,2,3]
+			console.log(a,b,c) //还可以打分别输出abc的值;
+			console.log(typeof a,typeof b,typeof c) //他们的数据类型还是number
+			*/
+			//数组的解构赋值
+			//等号的左右两边都是数组;
+			//例子,昨天今天明天
+			
+			/*
+			const getDateStr = function(date){
+				let o = new Date(date);
+				let years = o.getFullYear();
+				let mouth = o.getMonth()+1;
+				let day = o.getDate();
+				let hour = o.getHours();
+				let minu = o.getMinutes();
+				let second = o.getSeconds()
+				let weel ="日一二三四五六".charAt(o.getDay());
+				const doTonw = function(s){
+					let n = Number(s);
+					return  n < 10?"0"+ n:n;
+				};
+				return years+"/"+doTonw(mouth)+"/"+doTonw(day)+" "+doTonw(hour)+":"+doTonw(minu)+":"+doTonw(second)+" 星期"+weel
+			}
+			var time = new Date().getTime();
+			const oneday = 60*60*24*1000; //一天的时间
+			
+			*/
+			
+			/*
+			let [yesterday,today,tromorrow] = [getDateStr(time-oneday),getDateStr(time),getDateStr(time+oneday)];
+			console.log(yesterday,"昨天现在");  //昨天
+			console.log(today,"当前");		//今天
+			console.log(tromorrow,"明天现在");//明天
+			*/
+		   
+		   
+		   //不完全结构
+		   /*
+			//没有赋值就等于undefined
+			let [yesterday,today,tromorrow] = [getDateStr(time-oneday),getDateStr(time)];
+			console.log(tromorrow);//明天
+			*/
+			
+			
+			//变参解构，这里的future是一个对象;
+			/*
+			
+			let [today,...future] = [getDateStr(time),getDateStr(time+oneday),getDateStr(time+oneday*2)];
+			console.log(today);		//今天
+			console.log(future);//未来两天
+			console.log(typeof future);//object
+			*/
+			
+			//对象的解构赋值,等号的两边必须是等号
+			
+			//回顾一下JS中的堆和栈
+			//JS中数据存放的地方就是在堆栈里存放
+			//普通类型的数据直接存放在栈中，如：
+			/*
+			let n = 10;
+			let s = "wang";
+			let b =true;
+			let timer = null;
+			//引用类型的地址才能放在栈总，但是其数据存放在堆中，就是Object类型，Arry类型，或者可以把Arry类型当作Object类型的一种变体；
+			//当查询引用类型的变量时候先从栈中读取内存地址，然后再通过地址找到堆中的值。 
+			let o = {
+				name:"wang",
+				age:"18"
+			};
+			//这里o指向的是一个地址
+			let isname = o.name;
+			//isname指向的是这个地址中KEY交是name的value，这个值是保存在堆中的；
+			*/
+			
+			
+			//ES6中的对象结构
+			//对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+			/*
+			let o = {
+				name:"wang",
+				age:"18"
+			};
+			let {name,age,job} = o; //在右侧找到与左侧相同的Key,然后复制key的value给左侧
+			console.log(name)  //wang
+			console.log(job)// undefined，因为o里没有名叫job的key;
+			*/
+			//如果变量名与属性不一致，可以进行多次解构来的得到值
+			/**/
+			/*
+			let o = {
+				name:"wang",
+				age:"18"
+			};
+			let {name:a,age:b} = o; //左侧的nam匹配右侧name,然后把值赋给a;
+			console.log(a)
+			*/
+			//如果对声明的变量，进行变量结构，那本必须小心，因为js会把赋值结构看成是代码块，会报错，这样那我们用圆括号括起来
+			/*
+			let name,age,job;
+			let o ={
+				name:"wang",
+				age:18,
+				job:"搬砖"
+			};
+			*/
+			//{name,age,job} = o; //报错浏览器会把这个看成代码块
+			//({name,age,job} = o) //这样即可
+			
+			
+			//字符串的结构赋值
+			//字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象,伪数组。
+			/*
+			let o ={
+				name:"wang",
+				age:18,
+				job:"搬砖"
+			};
+			let my_name = "wang";
+			let [a,b,c,d] = my_name;
+			console.log(a,b,c,d)//依次打印w a n g,这个时候，给左侧每个变量赋了右侧字符串的一个字符
+			*/
+		   /*
+		    let o ={
+				name:"wang",
+				age:18,
+				job:"搬砖"
+		    };
+			let {length:len} = o.name;  //这里o.name是一个字符串有一个length的属性
+			console.log(len== o.name.length)//true 
+			*/
+		   
+		   //数值和布尔值的解构赋值
+		   //解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。
+		   
+		   /*
+		   console.log(Number.prototype)  //对象
+		   console.log(Boolean.prototype)//对象
+		   //可以看见在原型上有一个toString方法；
+		   //结构赋值
+		   var {toString:fn_n } = 10;
+		   var {toString:fn_b } = true;
+		   console.log(fn_n===Number.prototype.toString) //这里是fn是其原型上的toString方法
+		   console.log(fn_b===Boolean.prototype.toString)	
+			*/
+		   
+		   //默认值
+		   //如果没有这个自定义默认值，那么解构赋值的时候这个值先等与undefined，如果有值的情况下会被赋值，没有值择是undefined
+		   /*
+		   let [x,y,z] = [1,2]
+		   console.log(z)  //undefined，右侧与z位置没有对应的值
+		   */
+		   //自定义默认值
+		  
+		  /* 
+		   let [x,y,z=100] = [1,2];
+		   console.log(z) //自定义z的值是100，右侧没有对应的值情况下，会使用自定义的默认值；
+		   */
+		  /*
+		   let [x,y,z=100] = [1,2,3];
+		   console.log(z) //自定义z的值是100，右侧有对应的值情况下，
+		   */
+		   //默认值是函数
+		   //如果与之对应的有值那么这个函数则不执行；
+		   
+		   /*
+			function f() {
+			  return "相对应的没有值";
+			};
+			
+			let [n= f()] = []
+			console.log(n) //没有对应的值，输出默认值，默认值是一个函数的返回值；
+			
+			let [n= f()] = [100]
+			console.log(n) //有对应的值，输出对应值
+		   
+		   */
+		   
+		   
+		   
+		   //函数参数的解构赋值
+		   //这里的参数看起来是个数组，但是在变成函数参数的时候，就被解构赋值；
+		   /*
+			function fn([x,y]){
+				return x+y
+			}
+			console.log(fn([1,3])) //注意：在调用的时候也要和参数的格式相同；
+			*/
+		   //函数参数也可以使用默认值
+		   
+		   //这里定义函数参数的默认值为x=0,y = 0;函数内返回他们的和，也就是默认他们的和是0；
+		   /*
+		   function fn1 ([x=0,y=0]){
+			   return x+y;
+		   }
+		   console.log(fn1([]));//输出默认和 0
+		   console.log(fn1([5,5]))//输出10
+			*/
+			
+			
+			//用途
+			//变量的交换值
+			/*
+			let x = 1;
+			let y = 9;
+			[x,y] = [y,x];
+			console.log(x)  //9
+			console.log(y)  //1
+			*/
+		   
+		   
+		   //解构函数返回多个值
+			/*
+			  function fn(){
+				  let name ="wang",age = 18,job = "搬砖";
+				  return [name,age,job]  
+			  }
+			  console.log(typeof fn()) //查看这个函数的返回值是一个Object,数组;
+			  console.log(fn()[2]) //用数组下标也可以的得到值
+			  let [iswho,isage] = fn();
+			 
+			  console.log(iswho)  //wang
+			  console.log(isjob)  //18
+			*/
+	      //  let [iswho,,isjob] = fn();//忽略函数的返回值
+	   
+	   
+	   //切割数组或对象
+	   /*
+	   let [,,,,,,...res] = [0,1,2,3,4,5,6,7,8,9,10]
+	   console.log(res)  //[6, 7, 8, 9, 10]
+	   */
+	  
+	  /*
+	   let {a,b,...res}={
+		   a:0,
+		   b:1,
+		   c:2,
+		   d:3,
+		   e:4
+	   };
+	   console.log(res) //{c: 2, d: 3, e: 4}
+	   */
+	  
+	  
+	  /*
+	  //动态解构对象字段
+	    let key = 'x';
+		// key是变量
+		let {[key]: value} = {x: 'X', y: 'Y', z: 'Z'};
+		console.log(value); // "X"
+		
+		//输入模块的指定方法
+		const { pModule1, pModule2 } = require("p");
+	   //等等，还有其他
+	   
+	   */
+	  
+	  //圆括号的使用
+	  
+	  
+	   
+		</script>
+	</body>
+</html>
